@@ -18,6 +18,7 @@ pipeline {
                 git config --global user.email "quang.hong.0991@gmail.com"
                 git config --global user.name "quangchuhong"
                 git clone https://$GIT_CREDS_USR:$GIT_CREDS_PSW@github.com/quangchuhong/tfe-rds.git
+                cd tfe-rds/
                 terraform init
                 terraform plan
                 '''
