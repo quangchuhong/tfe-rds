@@ -32,14 +32,14 @@ pipeline {
                 '''
             }
         }
+    }
 
-        post {
-            failure {
-                sh '''#!/usr/bin/env bash
-                echo "Shell Process ID: $$"
-                '''
-                }
+    post {
+        failure {
+            sh '''#!/usr/bin/env bash
+            echo "Shell Process ID: $$"
+            '''
             }
-
         }
+
 }
