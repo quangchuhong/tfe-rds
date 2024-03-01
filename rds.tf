@@ -34,16 +34,16 @@ resource "aws_db_parameter_group" "education" {
   }
 }
 
-resource "aws_db_instance" "education_replica" {
-   #name                   = "education-replica"
-   identifier             = "education03-replica"
-   replicate_source_db    = aws_db_instance.education.identifier
-   instance_class         = var.instance_class
-   apply_immediately      = true
-   publicly_accessible    = true
-   skip_final_snapshot    = true
-   vpc_security_group_ids = ["sg-08ad0b8c3703423eb"]
-   parameter_group_name   = aws_db_parameter_group.education.name
-}
+# resource "aws_db_instance" "education_replica" {
+#    #name                   = "education-replica"
+#    identifier             = "education03-replica"
+#    replicate_source_db    = aws_db_instance.education.identifier
+#    instance_class         = var.instance_class
+#    apply_immediately      = true
+#    publicly_accessible    = true
+#    skip_final_snapshot    = true
+#    vpc_security_group_ids = ["sg-08ad0b8c3703423eb"]
+#    parameter_group_name   = aws_db_parameter_group.education.name
+# }
 
 
