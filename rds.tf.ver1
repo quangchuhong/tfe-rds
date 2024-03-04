@@ -26,7 +26,7 @@ resource "aws_db_instance" "education" {
 
 resource "aws_db_parameter_group" "education" {
   name   = "education"
-  family = "postgres15"
+  family = "postgres14"
 
   parameter {
     name  = "log_connections"
@@ -35,7 +35,7 @@ resource "aws_db_parameter_group" "education" {
 }
 
 resource "aws_db_parameter_group" "education2" {
-  name   = "education1502"
+  name   = "education15"
   family = "postgres15"
 
   parameter {
