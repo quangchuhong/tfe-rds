@@ -1,5 +1,5 @@
-resource "aws_db_subnet_group" "education" {
-  name       = "education"
+resource "aws_db_subnet_group" "education2" {
+  name       = "rds-upgrade-test"
   subnet_ids = ["subnet-06563712c6d2cb34d", "subnet-0f34bff22fcd3f363"]
 
   tags = {
@@ -7,25 +7,25 @@ resource "aws_db_subnet_group" "education" {
   }
 }
 
-resource "aws_db_instance" "education" {
-  identifier             = "education03"
-  instance_class         = var.instance_class
+resource "aws_db_instance" "education2" {
+  identifier             = "quangch-rds-upgrade-test"
+  instance_class         = var.instance_class_2
   allocated_storage      = 5
   engine                 = "postgres"
-  engine_version         = var.engine_version
+  engine_version         = var.engine_version_2
   username               = "edu"
-  password               = var.db_password
-  db_subnet_group_name   = aws_db_subnet_group.education.name
+  password               = var.db_password_2
+  db_subnet_group_name   = aws_db_subnet_group.education2.name
   vpc_security_group_ids = ["sg-08ad0b8c3703423eb"]
-  parameter_group_name   = aws_db_parameter_group.education.name
+  parameter_group_name   = aws_db_parameter_group.education2.name
   publicly_accessible    = true
   skip_final_snapshot    = true
   backup_retention_period = 7
   storage_encrypted       = true
 }
 
-resource "aws_db_parameter_group" "education" {
-  name   = "education"
+resource "aws_db_parameter_group" "education2" {
+  name   = "rds-upgrade-test"
   family = "postgres15"
 
   parameter {
